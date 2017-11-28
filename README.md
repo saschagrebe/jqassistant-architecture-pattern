@@ -36,4 +36,4 @@ Furthermore one could trick the constraint very easily by declaring member varia
 
 | Property | Value                     |
 | id       | arc:LawOfDemeterViolation |
-| severity | minor                     |
+| severity | major                     |
