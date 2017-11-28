@@ -1,0 +1,23 @@
+<jqa:jqassistant-rules xmlns:jqa="http://www.buschmais.com/jqassistant/core/analysis/rules/schema/v1.0">
+
+    <constraint id="arc:LawOfDemeterViolation" severity="minor">
+        <requiresConcept refId="basic:CreateObjectInMethod" />
+        <description>The method call violates the law of demeter (see https://en.wikipedia.org/wiki/Law_of_Demeter).</description>
+        <cypher><![CDATA[
+          MATCH
+            (o:Class)-[:DECLARES]->(m:Method)-[i:INVOKES]->(r:Method)<-[:DECLARES]-(c:Class)
+          WHERE
+            not (o = c)
+            and not ((m)-[:CONSTRUCTS]->(c))
+            and not ((m)-[:HAS]->(:Parameter)-[:OF_TYPE]->(c))
+            and not ((o)-[:DECLARES]->(:Field:Member)-[:OF_TYPE]->(c))
+          RETURN
+            m
+        ]]></cypher>
+    </constraint>
+
+    <group id="default">
+        <includeConstraint refId="arc:LawOfDemeterViolation"/>
+    </group>
+
+</jqa:jqassistant-rules>
