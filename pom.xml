@@ -23,8 +23,19 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/saschagrebe/jqassistant-architecture-pattern.git</url>
+        <connection>scm:git:git://github.com/saschagrebe/jqassistant-architecture-pattern.git</connection>
+        <developerConnection>scm:git:ssh://github.com:saschagrebe/jqassistant-architecture-pattern.git</developerConnection>
+        <url>http://github.com/saschagrebe/jqassistant-architecture-pattern</url>
     </scm>
+
+    <developers>
+        <developer>
+            <name>Sascha Grebe</name>
+            <email>sascha.grebe@fantasymail.de</email>
+            <organization>saschagrebe</organization>
+            <organizationUrl>https://github.com/saschagrebe/</organizationUrl>
+        </developer>
+    </developers>
 
     <distributionManagement>
         <snapshotRepository>
